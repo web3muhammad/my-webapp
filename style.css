@@ -9,6 +9,18 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+::placeholder {
+  color: #000000;
+  opacity: 1; /* Firefox */
+}
+
 html{
   height: 100%;
   width: 100%;
@@ -17,23 +29,28 @@ html{
 }
 
 main{
-  width: 80%;
+  width: 90%;
   margin-top: 20px;
-  margin-left: 20%;
+  margin-left: 5%;
 }
 
 img{
   height: 25px;
 }
 
-.info p{
-  margin-left: 10px;
-  padding-top: 5px;
+hr{
+  margin-top: 20px;
 }
 
 .info{
   display: flex;
   justify-content: flex-start;
+  margin-left: 1%;
+}
+
+.info p{
+  margin-left: 10px;
+  padding-top: 5px;
 }
 
 .input{
@@ -42,7 +59,7 @@ img{
 }
 
 .input input{
-  font-size: 60px;
+  font-size: 50px;
   border: none;
   width: 50%;
   color: #000;
@@ -52,6 +69,15 @@ img{
   font-size: 40px;
   border: none;
 }
+
+.hint{
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 2%;
+  color: gray;
+}
+
+
 
 #receive{
   margin-top: 20px;
