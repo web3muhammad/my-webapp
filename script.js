@@ -2,12 +2,10 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
-let usercard = document.getElementById("usercard");
+let test = document.getElementById("test");
 
-let username = document.getElementById("username");
 let p = document.createElement("p");
 
 p.innerText = `${tg.initDataUnsafe.user.id}`;
 
-usercard.appendChild(p);
-
+test.appendChild(p);
