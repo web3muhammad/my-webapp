@@ -64,7 +64,6 @@ select{
 .input{
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
 }
 
 .input input{
@@ -72,7 +71,6 @@ select{
   border: none;
   width: 100%;
   color: #000;
-  height: 50px;
   font-weight: 800;
 }
 
@@ -86,14 +84,12 @@ select{
   padding-right: 20px;
   color: rgb(140, 140, 140);
   text-align: right;
-  height: 50px;
   font-weight: 800;
 }
 
 .hint{
   display: flex;
   justify-content: flex-start;
-  margin-top: 5px;
   color: rgb(140, 140, 140);
   font-size: large;
 }
