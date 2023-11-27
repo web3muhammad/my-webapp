@@ -1,5 +1,5 @@
 *{
-  font-family: 'Asap Condensed', sans-serif;
+  font-family: 'Nunito', sans-serif;
   margin: 0;
 	padding: 0;
 	border: 0;
@@ -19,12 +19,11 @@ main{
 }
 
 img{
-  height: 30px;
+  height: 35px;
 }
 
 hr{
-  margin-top: 20px;
-  background-color: gray;
+  background-color: black;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -54,7 +53,7 @@ select{
 .info{
   display: flex;
   justify-content: flex-start;
-  margin-left: 1%;
+  font-size: large;
 }
 
 .info p{
@@ -65,17 +64,16 @@ select{
 .input{
   display: flex;
   justify-content: space-between;
-
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .input input{
   font-size: 60px;
   border: none;
-  width: 60%;
+  width: 100%;
   color: #000;
-  padding-top: 10px;
   height: 50px;
+  font-weight: 800;
 }
 
 .input select{
@@ -85,18 +83,19 @@ select{
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: right;
-  padding-right: 25px;
+  padding-right: 20px;
   color: rgb(140, 140, 140);
   text-align: right;
   height: 50px;
+  font-weight: 800;
 }
 
 .hint{
   display: flex;
   justify-content: flex-start;
-  margin-left: 2%;
   margin-top: 5px;
-  color: black;
+  color: rgb(140, 140, 140);
+  font-size: large;
 }
 
 #receive{
