@@ -1,11 +1,11 @@
 *{
   margin: 0;
-  -webkit-appearance: none;
 }
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button{
+input::-webkit-inner-spin-button,
+select{
   -webkit-appearance: none;
   margin: 0;
 }
