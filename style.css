@@ -83,7 +83,7 @@ select{
   background-position: right;
   padding-right: 20px;
   color: rgb(140, 140, 140);
-  text-align: right;
+  text-align: right !important;
   font-weight: 800;
 }
 
