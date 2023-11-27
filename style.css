@@ -130,15 +130,15 @@ hr{
   font-size: 40px;
   border: none;
   background-image: url(assets/select-arrow.png);
-  background-size: 20%;
+  background-size: 25px;
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: 10px;
   padding-right: 25px;
   color: rgb(140, 140, 140);
   text-align: right;
-  margin-top: 10px;
   height: 50px;
+  margin-top: 10px;
 }
 
 .hint{
