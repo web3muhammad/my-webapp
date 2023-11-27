@@ -16,6 +16,18 @@ button:focus {
     outline: none;
 }
 
+select{
+  -webkit-appearance: none;
+  background-color: white;
+  background-image: url(assets/select-arrow.png);
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 10%;
+}
+
+
+
 ::placeholder {
   color: #000000;
   opacity: 1; /* Firefox */
@@ -76,8 +88,6 @@ hr{
   margin-left: 2%;
   color: gray;
 }
-
-
 
 #receive{
   margin-top: 20px;
