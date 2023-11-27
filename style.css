@@ -1,5 +1,6 @@
 *{
   margin: 0;
+  font-family: 'Hind', sans-serif;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -19,14 +20,7 @@ button:focus {
 select{
   -webkit-appearance: none;
   background-color: white;
-  background-image: url(assets/select-arrow.png);
-  background-size: 20%;
-  background-repeat: no-repeat;
-  background-position: right;
-  padding-right: 10%;
 }
-
-
 
 ::placeholder {
   color: #000000;
@@ -47,11 +41,12 @@ main{
 }
 
 img{
-  height: 25px;
+  height: 30px;
 }
 
 hr{
   margin-top: 20px;
+  background-color: gray;
 }
 
 .info{
@@ -62,31 +57,43 @@ hr{
 
 .info p{
   margin-left: 10px;
-  padding-top: 5px;
+  margin-top: 5px;
 }
 
 .input{
   display: flex;
   justify-content: space-between;
+  height: 50px;
+  margin-top: 5px;
 }
 
 .input input{
-  font-size: 50px;
+  font-size: 60px;
   border: none;
-  width: 50%;
+  width: 60%;
   color: #000;
+  padding-top: 10px;
 }
 
 .input select{
   font-size: 40px;
   border: none;
+  background-image: url(assets/select-arrow.png);
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: 18px;
+  padding-right: 25px;
+  color: rgb(140, 140, 140);
+  text-align: right;
 }
 
 .hint{
   display: flex;
   justify-content: flex-start;
   margin-left: 2%;
-  color: gray;
+  margin-top: 5px;
+  color: black;
 }
 
 #receive{
