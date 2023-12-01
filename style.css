@@ -100,4 +100,10 @@ option {
   margin-left: 5px;
 }
 
+.currencies {
+  -webkit-appearance: none;
+  border-radius: 15px;
+  background-color: red;
+}
+
 
