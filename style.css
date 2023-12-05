@@ -79,6 +79,7 @@ select{
 .input select{
   font-size: 40px;
   border: none;
+
   background-image: url(assets/select-arrow.png);
   background-size: 20px;
   background-repeat: no-repeat;
@@ -90,18 +91,24 @@ select{
   text-align-last: right;
 }
 
-.input button {
-  font-size: 40px;
+.dropdown-exchange {
   border: none;
+  padding-right: 30px;
+  margin-top: 10px;
+  color: rgb(140, 140, 140);
+  font-size: 50px;
+  font-weight: 800;
+  text-align-last: right;
+
+  background-color: white;
   background-image: url(assets/select-arrow.png);
-  background-size: 20px;
+  background-size: 30px;
   background-repeat: no-repeat;
   background-position: right;
-  padding-right: 20px;
-  color: rgb(140, 140, 140);
-  font-weight: 800;
+}
 
-  text-align-last: right;
+.dropdown-exchange::after {
+  content: none;
 }
 
 .dropdown-content {
