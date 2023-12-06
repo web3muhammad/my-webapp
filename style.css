@@ -51,6 +51,7 @@ button:focus {
   display: flex;
   justify-content: flex-start;
   font-size: large;
+  margin-left: 1px;
 }
 
 .info p{
@@ -62,13 +63,13 @@ button:focus {
 .input{
   display: flex;
   justify-content: space-between;
+  margin-top: 5px;
 }
 
 .input input{
   border: none;
   font-size: 60px;
-  height: 60px;
-  line-height: 60px;
+  line-height: 65px;
   width: 100%;
   color: #000;
   font-weight: 800;
@@ -87,9 +88,10 @@ button:focus {
 
   background-color: white;
   background-image: url(assets/arrow.png);
-  background-size: 30px;
+  background-size: 35px;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position-x: right;
+  background-position-y: 11.5px;
 
   --bs-btn-color: #8c8c8c;
   --bs-btn-bg: white;
