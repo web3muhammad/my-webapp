@@ -19,7 +19,7 @@ img{
 
 hr{
   background-color: black;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -61,6 +61,7 @@ select{
 .info p{
   margin-left: 10px;
   margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .input{
@@ -70,13 +71,14 @@ select{
 
 .input input{
   font-size: 60px;
+  height: 60px;
   border: none;
   width: 100%;
   color: #000;
   font-weight: 800;
 }
 
-.input select{
+/* .input select{
   font-size: 40px;
   border: none;
 
@@ -89,22 +91,26 @@ select{
   font-weight: 800;
 
   text-align-last: right;
-}
+} */
 
 .dropdown-exchange {
   border: none;
+  padding: 0;
   padding-right: 30px;
-  margin-top: 10px;
+  height: 60px;
+
   color: rgb(140, 140, 140);
   font-size: 50px;
   font-weight: 800;
   text-align-last: right;
 
   background-color: white;
-  background-image: url(assets/select-arrow.png);
-  background-size: 30px;
+  background-image: url(assets/arrow.png);
+  background-size: 40px;
   background-repeat: no-repeat;
-  background-position: right;
+  /* background-position: right; */
+  background-position-x: right;
+  background-position-y: 15px;
 }
 
 .dropdown-exchange::after {
