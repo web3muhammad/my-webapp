@@ -76,6 +76,7 @@ select{
   width: 100%;
   color: #000;
   font-weight: 800;
+  padding-top: 15px;
 }
 
 /* .input select{
