@@ -18,8 +18,9 @@ img{
 }
 
 hr{
-  background-color: black;
+  background-color: #8c8c8c;
   margin-top: 5px;
+  height: 2px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -69,7 +70,8 @@ button:focus {
 .input input{
   border: none;
   font-size: 60px;
-  padding-top: 10px;
+  margin-top: 10px;
+  padding-bottom: 10px;
   height: 60px;
   line-height: 60px;
   width: 100%;
@@ -115,15 +117,27 @@ button:focus {
 .dropdown-menu {
   background-color: black;
   border-radius: 15px;
-  min-width: 140px;
+  min-width: 100px;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+
+  --bs-dropdown-link-hover-color: white;
+  --bs-dropdown-link-hover-bg: none;
+  --bs-dropdown-link-active-color: white;
+  --bs-dropdown-link-active-bg: rgb(80, 80, 80);
 }
 
 .dropdown-menu hr {
-  background-color: white;
+  background-color: #8c8c8c;
+  margin: 0;
 }
 
 .dropdown-item {
   color: white;
+  background-size: 100%;
+  padding: 10px;
+  padding-left: 30px;
 }
 
 .hint{
