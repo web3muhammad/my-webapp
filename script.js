@@ -1,6 +1,5 @@
-let inputElements = document.querySelectorAll(".nnn");
+let inputElements = document.querySelectorAll(".comma");
 
-console.log(inputElements)
 inputElements.forEach(element => {
   element.addEventListener("keyup",(event)=>{
     var tempNumber = element.value.replace(/,/gi, "");

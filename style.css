@@ -13,14 +13,18 @@ html{
   justify-content: center;
 }
 
+main {
+  margin-top: 30px;
+}
+
 img{
-  height: 35px;
+  height: 30px;
 }
 
 hr{
   background-color: #8c8c8c;
-  margin-top: 5px;
   height: 2px;
+  margin-top: 10px;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -37,6 +41,10 @@ button:focus {
     outline: none;
 }
 
+p {
+  margin: 0;
+}
+
 ::placeholder {
   color: #000000;
   opacity: 1; /* Firefox */
@@ -44,7 +52,6 @@ button:focus {
 
 .exchanges{
   width: 90%;
-  margin-top: 20px;
   margin-left: 5%;
 }
 
@@ -57,14 +64,13 @@ button:focus {
 
 .info p{
   margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 2.5px;
   margin-bottom: 0;
 }
 
 .input{
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
 }
 
 .input input{
@@ -72,7 +78,7 @@ button:focus {
   font-size: 60px;
   /* margin-top: 10px; */
   /* padding-bottom: 10px; */
-  height: 65px;
+  /* height: 65px; */
   line-height: 70px;
   width: 100%;
   color: #000;
@@ -146,4 +152,52 @@ button:focus {
   color: rgb(140, 140, 140);
   font-size: large;
   margin-left: 5px;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+}
+
+#swap-line-left {
+  max-width: 80%;
+  height: 60px;
+  padding: 0;
+  padding-right: 10px;
+}
+
+#swap-line-right {
+  width: 80px;
+  padding: 0;
+  padding-left: 10px;
+  height: 60px;
+}
+
+#swap {
+  font-size: 50px;
+  width: 70px;
+  height: 70px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  /* background-image: url(assets/swap.gif); */
+  background-size: 60px;
+  background-repeat: no-repeat;
+}
+
+.static_trash {
+  height: 60px;
+  width: 60px;
+}
+
+.live_trash {
+  display : "none"
 }
