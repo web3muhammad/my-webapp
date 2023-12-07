@@ -1,4 +1,5 @@
 *{
+  font-family: 'Nunito', sans-serif;
   margin: 0;
 	padding: 0;
   appearance: none;
@@ -72,7 +73,7 @@ button:focus {
   /* height: 60px; */
   width: 100%;
   color: #000;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .dropdown-exchange {
@@ -83,7 +84,7 @@ button:focus {
 
   color: #8c8c8c;
   font-size: 40px;
-  font-weight: 800;
+  font-weight: 700;
   text-align-last: right;
 
   background-color: white;
