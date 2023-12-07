@@ -64,11 +64,13 @@ button:focus {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
+  height: 60px;
 }
 
 .input input{
   border: none;
   font-size: 60px;
+  /* height: 60px; */
   width: 100%;
   color: #000;
   font-weight: 800;
@@ -78,7 +80,7 @@ button:focus {
   border: none;
   padding: 0;
   padding-right: 25px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   color: #8c8c8c;
   font-size: 40px;
