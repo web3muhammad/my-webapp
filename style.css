@@ -50,7 +50,7 @@ p {
   opacity: 1; /* Firefox */
 }
 
-.exchanges{
+.center-blank{
   width: 90%;
   margin-left: 5%;
 }
@@ -75,11 +75,11 @@ p {
 
 .input input{
   border: none;
-  font-size: 60px;
+  font-size: 40px;
   /* margin-top: 10px; */
   /* padding-bottom: 10px; */
   /* height: 65px; */
-  line-height: 70px;
+  /* line-height: 70px; */
   width: 100%;
   color: #000;
   font-weight: 700;
@@ -88,20 +88,21 @@ p {
 .dropdown-exchange {
   border: none;
   padding: 0;
-  padding-right: 25px;
+  padding-right: 20px;
   margin-top: 10px;
 
   color: #8c8c8c;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   text-align-last: right;
 
   background-color: white;
   background-image: url(assets/arrow.png);
-  background-size: 35px;
+  background-size: 25px;
   background-repeat: no-repeat;
-  background-position-x: right;
-  background-position-y: 11.5px;
+  background-position: right;
+  /* background-position-x: right;
+  background-position-y: 11.5px; */
 
   --bs-btn-color: #8c8c8c;
   --bs-btn-bg: white;
@@ -200,4 +201,9 @@ p {
 
 .live_trash {
   display : "none"
+}
+
+.head-text {
+  margin-top: 20px;
+  font-weight: 700;
 }
