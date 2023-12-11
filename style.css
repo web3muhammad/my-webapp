@@ -1,91 +1,79 @@
-*{
+/* Main */
+body {
   font-family: 'Nunito', sans-serif;
-  margin: 0;
-	padding: 0;
-  appearance: none;
-  -webkit-appearance: none;
-}
-
-html{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-main {
   margin-top: 30px;
 }
 
-img{
-  height: 30px;
+/* Details */
+:focus {
+  outline: none;
 }
 
-hr{
+::placeholder {
+  color: #000000;
+  opacity: 1;
+}
+
+
+/* Classes */
+
+.exchange-block hr {
   background-color: #8c8c8c;
   height: 2px;
   margin-top: 10px;
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button,
-input{
-  -webkit-appearance: none;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-
-p {
-  margin: 0;
-}
-
-::placeholder {
-  color: #000000;
-  opacity: 1; /* Firefox */
-}
-
-.center-blank{
+.center-block {
   width: 90%;
   margin-left: 5%;
 }
 
-.info{
+.head-text {
+  margin-top: 20px;
+  font-weight: 700;
+}
+
+.hint {
+  display: flex;
+  justify-content: flex-start;
+  color: rgb(140, 140, 140);
+  font-size: large;
+  margin-left: 5px;
+}
+
+/* Class .info */
+.info {
   display: flex;
   justify-content: flex-start;
   font-size: large;
   margin-left: 1px;
 }
 
-.info p{
+.info img {
+  height: 30px;
+}
+
+.info p {
   margin-left: 10px;
   margin-top: 2.5px;
   margin-bottom: 0;
 }
 
-.input{
+/* Class .amount-input */
+.amount-input {
   display: flex;
   justify-content: space-between;
 }
 
-.input input{
+.amount-input input {
   border: none;
   font-size: 40px;
-  /* margin-top: 10px; */
-  /* padding-bottom: 10px; */
-  /* height: 65px; */
-  /* line-height: 70px; */
   width: 100%;
   color: #000;
   font-weight: 700;
 }
 
-.dropdown-exchange {
+.amount-input .dropdown-exchange {
   border: none;
   padding: 0;
   padding-right: 20px;
@@ -101,8 +89,6 @@ p {
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: right;
-  /* background-position-x: right;
-  background-position-y: 11.5px; */
 
   --bs-btn-color: #8c8c8c;
   --bs-btn-bg: white;
@@ -117,11 +103,11 @@ p {
   --bs-btn-active-shadow: none;
 }
 
-.dropdown-exchange::after {
+.amount-input .dropdown-exchange::after {
   content: none;
 }
 
-.dropdown-menu {
+.amount-input .dropdown-menu {
   background-color: black;
   border-radius: 15px;
   min-width: 100px;
@@ -133,77 +119,28 @@ p {
   --bs-dropdown-link-hover-bg: none;
   --bs-dropdown-link-active-color: white;
   --bs-dropdown-link-active-bg: rgb(80, 80, 80);
+
+  inset: 0px 0px auto auto !important;
 }
 
-.dropdown-menu hr {
+.amount-input .dropdown-menu hr {
   background-color: #8c8c8c;
   margin: 0;
 }
 
-.dropdown-item {
+.amount-input .dropdown-item {
   color: white;
   background-size: 100%;
   padding: 10px;
   padding-left: 30px;
 }
 
-.hint{
-  display: flex;
-  justify-content: flex-start;
-  color: rgb(140, 140, 140);
-  font-size: large;
-  margin-left: 5px;
+
+/* ID's */
+#countries button {
+  width: 100%;
 }
 
-.container-fluid {
-  margin: 0;
-  padding: 0;
-  height: auto;
-}
-
-.row {
-  display: flex;
-  justify-content: flex-end;
-  margin: 0;
-  padding: 0;
-}
-
-#swap-line-left {
-  max-width: 80%;
-  height: 60px;
-  padding: 0;
-  padding-right: 10px;
-}
-
-#swap-line-right {
-  width: 80px;
-  padding: 0;
-  padding-left: 10px;
-  height: 60px;
-}
-
-#swap {
-  font-size: 50px;
-  width: 70px;
-  height: 70px;
-  padding: 0;
-  margin: 0;
-  border: none;
-  /* background-image: url(assets/swap.gif); */
-  background-size: 60px;
-  background-repeat: no-repeat;
-}
-
-.static_trash {
-  height: 60px;
-  width: 60px;
-}
-
-.live_trash {
-  display : "none"
-}
-
-.head-text {
-  margin-top: 20px;
-  font-weight: 700;
+#countries .dropdown-menu {
+  width: 100%;
 }
