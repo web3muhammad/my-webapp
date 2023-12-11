@@ -1,5 +1,4 @@
 /* Main */
-
 * {
   margin: 0;
   padding: 0;
@@ -117,6 +116,8 @@ body {
   background-color: black;
   border-radius: 15px;
   min-width: 100px;
+
+  /* transform: translate3d(-0.5px, 57px, 0px); */
   height: auto;
   padding: 0;
   overflow: hidden;
@@ -125,6 +126,7 @@ body {
   --bs-dropdown-link-hover-bg: none;
   --bs-dropdown-link-active-color: white;
   --bs-dropdown-link-active-bg: rgb(80, 80, 80);
+  inset: 0px 0px auto auto;
 }
 
 .amount-input .dropdown-menu hr {
