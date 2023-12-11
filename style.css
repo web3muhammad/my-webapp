@@ -119,8 +119,6 @@ body {
   --bs-dropdown-link-hover-bg: none;
   --bs-dropdown-link-active-color: white;
   --bs-dropdown-link-active-bg: rgb(80, 80, 80);
-
-  inset: 0px 0px auto auto !important;
 }
 
 .amount-input .dropdown-menu hr {
