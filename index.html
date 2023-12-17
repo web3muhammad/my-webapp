@@ -21,7 +21,7 @@
   <div id="exchange-block">
     <div class="center-block" id="pay">
       <div class="info">
-        <img src="assets/russia.png" alt="Currency Icon">
+        <img src="assets/RUB.png" alt="Currency Icon" id="fromImg">
         <p>Вы отдаете</p>
       </div>
       <div class="amount-input">
@@ -31,7 +31,7 @@
           <button 
             class="btn btn-secondary dropdown-toggle dropdown-exchange" 
             type="button"   
-            id="triggerId" 
+            id="fromBtn" 
             data-bs-toggle="dropdown" 
             aria-haspopup="true"
             aria-expanded="false"
@@ -47,13 +47,13 @@
 
       </div>
       <div class="hint">
-        <p>Лиры</p>
+        <p id="fromHint-text">Рубли</p>
       </div>
     </div>
     <hr>
     <div class="center-block" id="receive">
       <div class="info">
-        <img src="assets/turkey.png" alt="Currency Icon">
+        <img src="assets/TRY.png" alt="Currency Icon" id="toImg">
         <p>Вы получаете</p>
       </div>
       <div class="amount-input">
@@ -63,7 +63,7 @@
           <button 
             class="btn btn-secondary dropdown-toggle dropdown-exchange" 
             type="button" 
-            id="triggerId" 
+            id="toBtn" 
             data-bs-toggle="dropdown" 
             aria-haspopup="true"
             aria-expanded="false"
@@ -79,7 +79,7 @@
         
       </div>
       <div class="hint">
-        <p>Рубли</p>
+        <p id="toHint-text">Лиры</p>
       </div>
     </div>
   </div>
@@ -88,25 +88,157 @@
     <div class="details-hint">
       <p>Информация: Лиры можно получить только наличкой</p>
     </div>
-    <h5 class="head-text">Детали обмена</h5>
-    <label for="countries">Выберите город</label>
-    <div class="dropdown-center open" id="countries">
-      <button
-        class="btn btn-secondary dropdown-toggle dropdown-button dropdown-exchange"
-        type="button"
-        id="triggerId"
-        data-bs-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-        >🇷🇺 Махачкала</button>
-      <div class="dropdown-menu" aria-labelledby="triggerId" id="countriesList">
-        <button class="dropdown-item" href="#">🇹🇷 Стамбул</button>
-        <hr>
-        <button class="dropdown-item" href="#">🇷🇺 Москва</button>
-        <hr>
-        <button class="dropdown-item" href="#">🇦🇪 Дубаи</button>
+    <h3 class="head-text">Детали обмена</h3>
+
+    <div class="form-element hide" id="countriesEl">
+      <label for="countries" class="form-label">Выберите город</label>
+      <div class="dropdown-center open form-dropdown" id="countries">
+        <button
+          class="btn btn-secondary dropdown-toggle dropdown-button dropdown-exchange"
+          type="button"
+          id="triggerId"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >🇷🇺 Махачкала</button>
+        <div class="dropdown-menu" aria-labelledby="triggerId" id="countriesList">
+          <button class="dropdown-item" href="#">🇹🇷 Стамбул</button>
+          <hr>
+          <button class="dropdown-item" href="#">🇷🇺 Москва</button>
+          <hr>
+          <button class="dropdown-item" href="#">🇦🇪 Дубаи</button>
+        </div>
+      </div>  
+    </div>
+  
+    <div class="form-element hide" id="moneyTypeEl">
+      <label for="moneyType" class="form-label">Выберите способ получения</label>
+      <div class="dropdown-center open form-dropdown" id="moneyType">
+        <button
+          class="btn btn-secondary dropdown-toggle dropdown-button dropdown-exchange"
+          type="button"
+          id="triggerId"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >💰 Наличка</button>
+        <div class="dropdown-menu" aria-labelledby="triggerId" id="moneyTypeList">
+          <button class="dropdown-item" href="#">💳 Карта</button>
+        </div>
       </div>
-    </div>      
+    </div>
+
+    <div class="form-element hide"  id="El">
+      <div class="mb-3">
+        <label for="" class="form-label">Укажите ваш криптокошелек</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">Стандарт TRC20</small>
+      </div>
+    </div>
+
+    <div class="form-element hide" id="">
+      <div class="mb-3">
+        <label for="" class="form-label">Укажите номер вашей карты</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">Российский банк</small>
+      </div>
+    </div>
+
+    <div class="form-element hide">
+      <h5 class="head-text">Реквизиты вашей турецкой карты</h5>
+      <div class="form-element">
+        <div class="mb-3">
+          <label for="" class="form-label">IBAN</label>
+          <input
+            type="text"
+            class="form-control form-input"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+          />
+          <small id="helpId" class="form-text text-muted"></small>
+        </div>
+      </div>
+  
+      <div class="form-element">
+        <div class="mb-3">
+          <label for="" class="form-label">Имя Фамилия</label>
+          <input
+            type="text"
+            class="form-control form-input"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+          />
+          <small id="helpId" class="form-text text-muted">На английском языке, как на карте</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-element hide">
+      <h5 class="head-text">Реквизиты вашей казахской карты</h5>
+      <div class="form-element">
+        <div class="mb-3">
+          <label for="" class="form-label">Номер карты</label>
+          <input
+            type="text"
+            class="form-control form-input"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+          />
+          <small id="helpId" class="form-text text-muted"></small>
+        </div>
+      </div>
+  
+      <div class="form-element">
+        <div class="mb-3">
+          <label for="" class="form-label">Имя Фамилия</label>
+          <input
+            type="text"
+            class="form-control form-input"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+          />
+          <small id="helpId" class="form-text text-muted">На английском языке, как на карте</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-phone">
+      <div class="mb-3">
+        <label for="" class="form-label">Укажите ваш номер телефона</label>
+        <input
+          type="phone"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder="+7 (988) 888-88-88"
+        />
+        <small id="helpId" class="form-text text-muted">Желательно тот, что в телеграме</small>
+      </div>
+    </div>
+
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="script.js"></script>

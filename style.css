@@ -183,11 +183,11 @@ body {
 }
 
 /* ID Countries */
-#countries button {
+.form-dropdown button {
   width: 100%;
 }
 
-#countries .dropdown-menu {
+.form-dropdown .dropdown-menu {
   width: 100%;
   border-radius: 15px;
 
@@ -201,7 +201,7 @@ body {
   --bs-dropdown-link-active-bg: rgb(80, 80, 80);
 }
 
-#countries .dropdown-item {
+.form-dropdown .dropdown-item {
   color: white;
   background-size: 100%;
   padding: 10px;
@@ -210,7 +210,21 @@ body {
   font-size: 15px;
 }
 
+.form-element {
+  margin-top: 20px;
+}
 
+.form-phone {
+  margin-top: 20px;
+}
+
+.form-input {
+  padding: 10px 5px 10px 15px;
+}
+
+.hide {
+  display: none;
+}
 /* ID's */
 #details {
   margin-top: 30px;

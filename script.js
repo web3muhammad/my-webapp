@@ -21,8 +21,18 @@ const currencies = {
 const selectionsContent = {
   'countriesList': ['🇷🇺 Махачкала', '🇹🇷 Стамбул', '🇷🇺 Москва', '🇦🇪 Дубаи'],
   'fromList': ['USDT', 'RUB', 'TRY', 'KZT'],
-  'toList': currencies
+  'toList': currencies,
+  'moneyTypeList': ['💰 Наличка', '💳 Карта']
 };
+
+const hintText = {
+  'RUB': 'Рубли',
+  'USDT': 'USDT (Крипто-доллар)',
+  'TRY': 'Лиры',
+  'KZT': 'Тенге',
+  'AED': 'Дирхамы',
+  'SAR': 'Риалы',
+}
 
 // SELECT ELEMENTS
 const exchangeRateEl = document.querySelector('.exchange-rate');
@@ -127,65 +137,57 @@ const dropdownEls = document.querySelectorAll(".dropdown-center");
 
 dropdownEls.forEach(element => {
   element.addEventListener("click", function(event) {
-    if (!event.target.matches('.dropdown-toggle')) {
-      var dropdowns = element.querySelectorAll(".dropdown-menu");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
     
+    fromBtn = document.getElementById("fromBtn")
+    toBtn = document.getElementById("toBtn")
+
     if(event.target.matches('.dropdown-item')) {
       element.querySelector('.dropdown-toggle').textContent=event.target.textContent
     }
 
     listEl = element.querySelector(".dropdown-menu")
-    if (listEl.id == 'toList') {
+    listEl.innerHTML = '';
 
-      for (const el of currencies[event.target.textContent]) {
-        if (el == element.querySelector('.dropdown-toggle').textContent){
-          continue
-        }
-      }
-
-    }else {
-
-      listEl.innerHTML = '';
-  
-  
-  
+    if(listEl.id != 'toList') {
       for (const el of selectionsContent[listEl.id]) {
         if (el == element.querySelector('.dropdown-toggle').textContent){
           continue
         }
-          
         listEl.innerHTML += `<button class="dropdown-item" href="#">${el}</button>
                                 <hr class="dropdown-divider">`;
       }
   
-      if (listEl.id == 'fromList') {
-        document.querySelector('#toList').innerHTML = ''
-        let count = 0;
+      if (listEl.id == 'fromList' && event.target.matches('.dropdown-item')) {
+        document.querySelector('#toList').innerHTML = '';
+        toBtn.textContent = currencies[event.target.textContent][0];
         for (const el of currencies[event.target.textContent]) {
           if (el == element.querySelector('.dropdown-toggle').textContent){
             continue
           }
-          
           document.querySelector('#toList').innerHTML += `<button class="dropdown-item" href="#">${el}</button>
                                                           <hr class="dropdown-divider">`;
-          
         }
-        console.log(count);
-        console.log(currencies[event.target.textContent][0]);
-        if (count = 0) {
-          element.querySelector('.dropdown-toggle').textContent=currencies[event.target.textContent][0]
+      }
+    } else {
+      for (const el of currencies[fromBtn.textContent]) {
+        if (el == element.querySelector('.dropdown-toggle').textContent){
+          continue
         }
+        listEl.innerHTML += `<button class="dropdown-item" href="#">${el}</button>
+                              <hr class="dropdown-divider">`;
+      }
     }
 
+    document.getElementById('fromImg').src = `assets/${fromBtn.textContent}.png`
+    document.getElementById('toImg').src = `assets/${toBtn.textContent}.png`
+
+    document.getElementById('fromHint-text').textContent = hintText[fromBtn.textContent]
+    document.getElementById('toHint-text').textContent = hintText[toBtn.textContent]
+
+    if (fromBtn.textContent == '' && toBtn.textContent == '') {
 
     }
+    
+
   });
 });
