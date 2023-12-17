@@ -25,19 +25,18 @@
         <p>Вы отдаете</p>
       </div>
       <div class="amount-input">
-        <input type="text" placeholder="0" class="comma"  pattern="\d*">
+        <input type="text" placeholder="0" class="comma"  pattern="\d*" id="from-currency-amount">
         
-        <div class="dropdown-center open">
+        <div class="dropdown-center open from-currency">
           <button 
             class="btn btn-secondary dropdown-toggle dropdown-exchange" 
-            type="button" 
+            type="button"   
             id="triggerId" 
             data-bs-toggle="dropdown" 
             aria-haspopup="true"
-            aria-expanded="false">
-            RUB
-          </button>
-          <div class="dropdown-menu" aria-labelledby="triggerId">
+            aria-expanded="false"
+            >RUB</button>
+          <div class="dropdown-menu select" aria-labelledby="triggerId" id="fromList">
             <button class="dropdown-item" href="#">USDT</button>
             <hr class="dropdown-divider">
             <button class="dropdown-item" href="#">TRY</button>
@@ -58,19 +57,18 @@
         <p>Вы получаете</p>
       </div>
       <div class="amount-input">
-        <input type="text" placeholder="0" class="comma"  pattern="\d*">
+        <input type="text" placeholder="0" class="comma"  pattern="\d*" id="to-currency-amount">
 
-        <div class="dropdown-center open">
+        <div class="dropdown-center open to-currency">
           <button 
             class="btn btn-secondary dropdown-toggle dropdown-exchange" 
             type="button" 
             id="triggerId" 
             data-bs-toggle="dropdown" 
             aria-haspopup="true"
-            aria-expanded="false">
-            TRY
-          </button>
-          <div class="dropdown-menu" aria-labelledby="triggerId">
+            aria-expanded="false"
+            >TRY</button>
+          <div class="dropdown-menu select" aria-labelledby="triggerId" id="toList">
             <button class="dropdown-item" href="#">RUB</button>
             <hr class="dropdown-divider">
             <button class="dropdown-item" href="#">USDT</button>
@@ -87,40 +85,28 @@
   </div>
 
   <div id="details" class="center-block">
-      <h5 class="head-text">Детали обмена</h5>
-      <label for="countries">Выберите город</label>
-      <div class="dropdown open" id="countries">
-        <button
-          class="btn btn-secondary dropdown-toggle dropdown-button"
-          type="button"
-          id="triggerId"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
-          🇷🇺 Махачкала
-        </button>
-        <div class="dropdown-menu" aria-labelledby="triggerId">
-          <button class="dropdown-item" href="#">🇹🇷 Стамбул</button>
-          <button class="dropdown-item" href="#">🇷🇺 Москва</button>
-          <button class="dropdown-item" href="#">🇦🇪 Дубаи</button>
-        </div>
+    <div class="details-hint">
+      <p>Информация: Лиры можно получить только наличкой</p>
+    </div>
+    <h5 class="head-text">Детали обмена</h5>
+    <label for="countries">Выберите город</label>
+    <div class="dropdown-center open" id="countries">
+      <button
+        class="btn btn-secondary dropdown-toggle dropdown-button dropdown-exchange"
+        type="button"
+        id="triggerId"
+        data-bs-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        >🇷🇺 Махачкала</button>
+      <div class="dropdown-menu" aria-labelledby="triggerId" id="countriesList">
+        <button class="dropdown-item" href="#">🇹🇷 Стамбул</button>
+        <hr>
+        <button class="dropdown-item" href="#">🇷🇺 Москва</button>
+        <hr>
+        <button class="dropdown-item" href="#">🇦🇪 Дубаи</button>
       </div>
-
-      <div class="mb-3 test">
-        <label for="" class="form-label">City</label>
-        <select
-          class="form-select form-select-lg"
-          name=""
-          id=""
-        >
-          <option selected>🇷🇺 Махачкала</option>
-          <option value="">🇹🇷 Стамбул</option>
-          <option value="">🇷🇺 Москва</option>
-          <option value="">🇦🇪 Дубаи</option>
-        </select>
-      </div>
-      
-      
+    </div>      
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="script.js"></script>

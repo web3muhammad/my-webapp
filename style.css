@@ -101,7 +101,6 @@ body {
 }
 
 .amount-input .dropdown-menu {
-  background-color: black;
   border-radius: 15px;
   min-width: 100px;
 
@@ -115,7 +114,7 @@ body {
   --bs-dropdown-link-active-bg: rgb(80, 80, 80);
 }
 
-.amount-input .dropdown-menu hr {
+.dropdown-menu hr {
   background-color: #8c8c8c;
   margin: 0;
 }
@@ -125,6 +124,7 @@ body {
   background-size: 100%;
   padding: 10px;
   padding-left: 30px;
+  background-color: #000;
 }
 
 
@@ -146,7 +146,7 @@ body {
   display: block;
   width: 100%;
   font-size: 20px;
-  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  padding: 10px 5px 10px 15px;
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 16px 12px;
@@ -157,12 +157,12 @@ body {
   --bs-btn-color: black;
   --bs-btn-bg: white;
   --bs-btn-border-color: var(--bs-border-color);
-  --bs-btn-hover-color: black;
-  --bs-btn-hover-bg: white;
+  --bs-btn-hover-color: none;
+  --bs-btn-hover-bg: none;
   --bs-btn-hover-border-color: var(--bs-border-color);
   --bs-btn-focus-shadow-rgb: none;
-  --bs-btn-active-color: black;
-  --bs-btn-active-bg: white;
+  --bs-btn-active-color: none;
+  --bs-btn-active-bg: none;
   --bs-btn-active-border-color: none;
   --bs-btn-active-shadow: none;
 }
@@ -175,14 +175,39 @@ body {
   margin-top: 20px;
 }
 
+.details-hint {
+  display: flex;
+  justify-content: flex-start;
+  color: rgb(140, 140, 140);
+  font-size: large;
+}
+
 /* ID Countries */
 #countries button {
   width: 100%;
-  background-color: white;
 }
 
 #countries .dropdown-menu {
   width: 100%;
+  border-radius: 15px;
+
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+
+  --bs-dropdown-link-hover-color: white;
+  --bs-dropdown-link-hover-bg: none;
+  --bs-dropdown-link-active-color: white;
+  --bs-dropdown-link-active-bg: rgb(80, 80, 80);
+}
+
+#countries .dropdown-item {
+  color: white;
+  background-size: 100%;
+  padding: 10px;
+  padding-left: 30px;
+  background-color: #000;
+  font-size: 15px;
 }
 
 
