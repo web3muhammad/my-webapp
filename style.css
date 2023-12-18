@@ -222,9 +222,16 @@ body {
   padding: 10px 5px 10px 15px;
 }
 
-/* .hide {
+.btn-group {
+  width: 100%;
+}
+
+.hide {
   display: none;
-} */
+}
+
+.visually-hidden-focusable:focus-within
+
 /* ID's */
 #details {
   margin-top: 30px;

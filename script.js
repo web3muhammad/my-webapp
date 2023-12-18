@@ -1,16 +1,7 @@
 const telegramWebApp = null
 
-// // Deviding by comma in inputs
-// let inputElements = document.querySelectorAll(".comma");
 
-// inputElements.forEach(element => {
-//   element.addEventListener("keyup",(event)=>{
-//     var tempNumber = element.value.replace(/,/gi, "");
-//     var commaSeparatedNumber = tempNumber.split(/(?=(?:\d{3})+$)/).join(",");
-//     element.value = commaSeparatedNumber;
-//   });
-// });
-
+// Dicts
 const currencies = {
   'RUB': ['USDT', 'TRY', 'KZT', 'AED', 'SAR'],
   'USDT': ['RUB', 'TRY', 'KZT', 'AED', 'SAR'],
@@ -32,9 +23,16 @@ const hintText = {
   'KZT': 'Тенге',
   'AED': 'Дирхамы',
   'SAR': 'Риалы',
+
+  'RUB': 'Рубли',
+  'USDT': 'USDT (Крипто-доллар)',
+  'TRY': 'Лиры',
+  'KZT': 'Тенге',
+  'AED': 'Дирхамы',
+  'SAR': 'Риалы',
 }
 
-// SELECT ELEMENTS
+// HTML's elements
 const exchangeRateEl = document.querySelector('.exchange-rate');
 const f_select = document.querySelector('.from-currency .select');
 const t_select = document.querySelector('.to-currency .select');
@@ -96,7 +94,7 @@ function renderSelectOptions(list) {
 }
 
 
-// convert
+// Convert func
 async function convert(direction) {
   if (direction === 'from->to') {
     t_input.value = fromCurrencyAmount() * exchangeRate;
@@ -105,7 +103,7 @@ async function convert(direction) {
   }
 }
 
-// EVENT LISTENERS
+// Events listeners
 f_select.addEventListener('change', async () => {
   // renderSelectOptions(currencies)
   console.log('Hello')
@@ -132,7 +130,7 @@ t_input.addEventListener('input', async () => {
 });
 
 
-// SELECTION IN DROPDOWNS
+// Correct selection in dropdowns
 const dropdownEls = document.querySelectorAll(".dropdown-center");
 
 dropdownEls.forEach(element => {
@@ -178,16 +176,27 @@ dropdownEls.forEach(element => {
       }
     }
 
-    document.getElementById('fromImg').src = `assets/${fromBtn.textContent}.png`
-    document.getElementById('toImg').src = `assets/${toBtn.textContent}.png`
-
-    document.getElementById('fromHint-text').textContent = hintText[fromBtn.textContent]
-    document.getElementById('toHint-text').textContent = hintText[toBtn.textContent]
-
-    if (fromBtn.textContent == '' && toBtn.textContent == '') {
-
+    if (listEl.id == 'fronList' || listEl.id == 'toList') {
+      document.getElementById('fromImg').src = `assets/${fromBtn.textContent}.png`
+      document.getElementById('toImg').src = `assets/${toBtn.textContent}.png`
+  
+      document.getElementById('fromHint-text').textContent = hintText[fromBtn.textContent]
+      document.getElementById('toHint-text').textContent = hintText[toBtn.textContent]
     }
-    
 
+    if (fromBtn.textContent == 'RUB' && toBtn.textContent == 'USDT') {
+      document.getElementById("testDivTwo").focus();
+    }
   });
 });
+
+// // Deviding by comma in inputs
+// let inputElements = document.querySelectorAll(".comma");
+
+// inputElements.forEach(element => {
+//   element.addEventListener("keyup",(event)=>{
+//     var tempNumber = element.value.replace(/,/gi, "");
+//     var commaSeparatedNumber = tempNumber.split(/(?=(?:\d{3})+$)/).join(",");
+//     element.value = commaSeparatedNumber;
+//   });
+// });

@@ -25,7 +25,7 @@
         <p>Вы отдаете</p>
       </div>
       <div class="amount-input">
-        <input type="text" placeholder="0" class="comma"  pattern="\d*" id="from-currency-amount">
+        <input type="text" placeholder="0" class="comma"  pattern="\d*" id="from-currency-amount" maxlength="10">
         
         <div class="dropdown-center open from-currency">
           <button 
@@ -57,7 +57,7 @@
         <p>Вы получаете</p>
       </div>
       <div class="amount-input">
-        <input type="text" placeholder="0" class="comma"  pattern="\d*" id="to-currency-amount">
+        <input type="text" placeholder="0" class="comma"  pattern="\d*" id="to-currency-amount" maxlength="10">
 
         <div class="dropdown-center open to-currency">
           <button 
@@ -86,11 +86,11 @@
 
   <div id="details" class="center-block">
     <div class="details-hint">
-      <p>Информация: Лиры можно получить только наличкой</p>
+      <p>Лиры можно получить только наличкой</p>
     </div>
     <h3 class="head-text">Детали обмена</h3>
 
-    <div class="form-element hide" id="countriesEl">
+    <div class="form-element" id="countriesEl">
       <label for="countries" class="form-label">Выберите город</label>
       <div class="dropdown-center open form-dropdown" id="countries">
         <button
@@ -126,6 +126,42 @@
           <button class="dropdown-item" href="#">💳 Карта</button>
         </div>
       </div>
+    </div>
+
+    <div class="form-element hide">
+      <label for="">Выберите способ получения</label>
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Basic checkbox toggle button group"
+      >
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio"
+          id="btncheck1"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary"
+          for="btncheck1"
+          >💰 Наличка</label
+        >
+      
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio"
+          id="btncheck2"
+          autocomplete="off"
+        />
+        <label
+          class="btn btn-outline-primary"
+          for="btncheck2"
+          >💳 Карта</label
+        >
+      </div>
+      
     </div>
 
     <div class="form-element hide"  id="El">
@@ -190,8 +226,8 @@
         </div>
       </div>
     </div>
-
-    <div class="form-element hide">
+    
+    <div class="form-element visually-hidden-focusable">
       <h5 class="head-text">Реквизиты вашей казахской карты</h5>
       <div class="form-element">
         <div class="mb-3">
@@ -200,7 +236,7 @@
             type="text"
             class="form-control form-input"
             name=""
-            id=""
+            id="testDivTwo"
             aria-describedby="helpId"
             placeholder=""
           />
@@ -224,11 +260,44 @@
       </div>
     </div>
 
+    <div class="form-element hide">
+      <h5 class="head-text">Доставка</h5>
+      <div class="form-element">
+        <div class="mb-3">
+          <label for="" class="form-label">Адрес доставки</label>
+          <input
+            type="text"
+            class="form-control form-input"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder=""
+          />
+          <small id="helpId" class="form-text text-muted"></small>
+        </div>
+      </div>
+  
+      <div class="form-element">
+        <div class="mb-3">
+          <label for="" class="form-label">Фото паспорта получателя</label>
+          <input
+            type="file"
+            class="form-control form-input"
+            name=""
+            id=""
+            aria-describedby="helpId"
+            placeholder="Выберите Фото"
+          />
+          <small id="helpId" class="form-text text-muted"></small>
+        </div>
+      </div>
+    </div>
+
     <div class="form-phone">
       <div class="mb-3">
         <label for="" class="form-label">Укажите ваш номер телефона</label>
         <input
-          type="phone"
+          type="tel"
           class="form-control form-input"
           name=""
           id=""
