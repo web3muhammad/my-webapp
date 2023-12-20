@@ -8,7 +8,13 @@ tg.MainButton.setParams(
   is_active = false,
   is_visible = true);
 
-tg.MainButton.show();
+tg.MainButton.text = 'Отправить заявку'; // текст кнопки, по умолчанию: "Continue"
+tg.MainButton.color = '#2cab37';// цвет текста
+tg.MainButton.textColor  = '#FFFFFF';// цвет подложки
+tg.MainButton.isVisible = true; // видна ли кнопка (по умолчанию false) 
+tg.MainButton.isActive = false;
+
+// tg.MainButton.show();
 
 // Dicts
 const currencies = {
