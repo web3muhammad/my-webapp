@@ -85,12 +85,12 @@
   </div>
 
   <div id="details" class="center-block">
-    <div class="details-hint">
+    <div id="detailsHint">
       <p>Лиры можно получить только наличкой</p>
     </div>
     <h3 class="head-text">Детали обмена</h3>
 
-    <div class="form-element" id="countriesEl">
+    <div class="form-element visually-hidden" id="countriesEl">
       <label for="countries" class="form-label">Выберите город</label>
       <div class="dropdown-center open form-dropdown" id="countries">
         <button
@@ -110,25 +110,8 @@
         </div>
       </div>  
     </div>
-  
-    <div class="form-element hide" id="moneyTypeEl">
-      <label for="moneyType" class="form-label">Выберите способ получения</label>
-      <div class="dropdown-center open form-dropdown" id="moneyType">
-        <button
-          class="btn btn-secondary dropdown-toggle dropdown-button dropdown-exchange"
-          type="button"
-          id="triggerId"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          >💰 Наличка</button>
-        <div class="dropdown-menu" aria-labelledby="triggerId" id="moneyTypeList">
-          <button class="dropdown-item" href="#">💳 Карта</button>
-        </div>
-      </div>
-    </div>
 
-    <div class="form-element hide">
+    <div class="form-element" id="cashOrCard">
       <label for="">Выберите способ получения</label>
       <div
         class="btn-group"
@@ -141,6 +124,7 @@
           name="btnradio"
           id="btncheck1"
           autocomplete="off"
+          value="0"
         />
         <label
           class="btn btn-outline-primary"
@@ -154,6 +138,7 @@
           name="btnradio"
           id="btncheck2"
           autocomplete="off"
+          value="1"
         />
         <label
           class="btn btn-outline-primary"
@@ -164,9 +149,9 @@
       
     </div>
 
-    <div class="form-element hide"  id="El">
+    <div class="form-element visually-hidden"  id="userWallet">
       <div class="mb-3">
-        <label for="" class="form-label">Укажите ваш криптокошелек</label>
+        <label for="" class="form-label">Укажите адрес вашего криптокошелька</label>
         <input
           type="text"
           class="form-control form-input"
@@ -179,9 +164,9 @@
       </div>
     </div>
 
-    <div class="form-element hide" id="">
+    <div class="form-element visually-hidden" id="userBankInput">
       <div class="mb-3">
-        <label for="" class="form-label">Укажите номер вашей карты</label>
+        <label for="" class="form-label">Укажите номер <br> вашей банковской карты</label>
         <input
           type="text"
           class="form-control form-input"
@@ -192,75 +177,80 @@
         />
         <small id="helpId" class="form-text text-muted">Российский банк</small>
       </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Имя Фамилия владельца карты</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">На английском языке, как на карте</small>
+      </div>
     </div>
 
-    <div class="form-element hide">
+    <div class="form-element visually-hidden">
       <h5 class="head-text">Реквизиты вашей турецкой карты</h5>
-      <div class="form-element">
-        <div class="mb-3">
-          <label for="" class="form-label">IBAN</label>
-          <input
-            type="text"
-            class="form-control form-input"
-            name=""
-            id=""
-            aria-describedby="helpId"
-            placeholder=""
-          />
-          <small id="helpId" class="form-text text-muted"></small>
-        </div>
+      <div class="mb-3">
+        <label for="" class="form-label">IBAN</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted"></small>
       </div>
-  
-      <div class="form-element">
-        <div class="mb-3">
-          <label for="" class="form-label">Имя Фамилия</label>
-          <input
-            type="text"
-            class="form-control form-input"
-            name=""
-            id=""
-            aria-describedby="helpId"
-            placeholder=""
-          />
-          <small id="helpId" class="form-text text-muted">На английском языке, как на карте</small>
-        </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Имя Фамилия</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">На английском языке, как на карте</small>
       </div>
     </div>
     
-    <div class="form-element visually-hidden-focusable">
+    <div class="form-element visually-hidden">
       <h5 class="head-text">Реквизиты вашей казахской карты</h5>
-      <div class="form-element">
-        <div class="mb-3">
-          <label for="" class="form-label">Номер карты</label>
-          <input
-            type="text"
-            class="form-control form-input"
-            name=""
-            id="testDivTwo"
-            aria-describedby="helpId"
-            placeholder=""
-          />
-          <small id="helpId" class="form-text text-muted"></small>
-        </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Номер карты</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id="testDivTwo"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted"></small>
       </div>
-  
-      <div class="form-element">
-        <div class="mb-3">
-          <label for="" class="form-label">Имя Фамилия</label>
-          <input
-            type="text"
-            class="form-control form-input"
-            name=""
-            id=""
-            aria-describedby="helpId"
-            placeholder=""
-          />
-          <small id="helpId" class="form-text text-muted">На английском языке, как на карте</small>
-        </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Имя Фамилия</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+        />
+        <small id="helpId" class="form-text text-muted">На английском языке, как на карте</small>
       </div>
     </div>
 
-    <div class="form-element hide">
+    <div class="form-element visually-hidden">
       <h5 class="head-text">Доставка</h5>
       <div class="form-element">
         <div class="mb-3">
@@ -293,7 +283,7 @@
       </div>
     </div>
 
-    <div class="form-phone">
+    <div class="form-element visually-hidden">
       <div class="mb-3">
         <label for="" class="form-label">Укажите ваш номер телефона</label>
         <input
@@ -306,6 +296,10 @@
         />
         <small id="helpId" class="form-text text-muted">Желательно тот, что в телеграме</small>
       </div>
+    </div>
+
+    <div class="form-element visually-hidden" id="ourWallet">
+      <p>TExxGf9svXWXX66mH9nsAQh3uvofRFMXms</p>
     </div>
 
   </div>

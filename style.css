@@ -35,6 +35,7 @@ body {
 
 .head-text {
   font-weight: 700;
+  margin-top: 20px;
 }
 
 /* Class .info */
@@ -175,13 +176,6 @@ body {
   margin-top: 20px;
 }
 
-.details-hint {
-  display: flex;
-  justify-content: flex-start;
-  color: rgb(140, 140, 140);
-  font-size: large;
-}
-
 /* ID Countries */
 .form-dropdown button {
   width: 100%;
@@ -214,10 +208,6 @@ body {
   margin-top: 20px;
 }
 
-.form-phone {
-  margin-top: 20px;
-}
-
 .form-input {
   padding: 10px 5px 10px 15px;
 }
@@ -226,13 +216,14 @@ body {
   width: 100%;
 }
 
-.hide {
-  display: none;
-}
-
-.visually-hidden-focusable:focus-within
-
 /* ID's */
 #details {
   margin-top: 30px;
+}
+
+#detailsHint {
+  display: flex;
+  justify-content: flex-start;
+  color: rgb(140, 140, 140);
+  font-size: large;
 }

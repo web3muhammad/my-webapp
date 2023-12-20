@@ -1,5 +1,12 @@
-const telegramWebApp = null
+const tg = window.Telegram.WebApp;
+tg.expand();
 
+tg.MainButton.setParams(
+  text = 'Отправить заявку',
+  color = '#2cab37',
+  text_color = '#FFFFFF',
+  is_active = false,
+  is_visible = true);
 
 // Dicts
 const currencies = {
@@ -13,7 +20,6 @@ const selectionsContent = {
   'countriesList': ['🇷🇺 Махачкала', '🇹🇷 Стамбул', '🇷🇺 Москва', '🇦🇪 Дубаи'],
   'fromList': ['USDT', 'RUB', 'TRY', 'KZT'],
   'toList': currencies,
-  'moneyTypeList': ['💰 Наличка', '💳 Карта']
 };
 
 const hintText = {
@@ -24,12 +30,20 @@ const hintText = {
   'AED': 'Дирхамы',
   'SAR': 'Риалы',
 
-  'RUB': 'Рубли',
-  'USDT': 'USDT (Крипто-доллар)',
+  'RUBUSDT': 'Выберите каким способом отдать рубли.',
+  'USDTRUB': 'Выберите каким способом получить рубли.',
   'TRY': 'Лиры',
   'KZT': 'Тенге',
   'AED': 'Дирхамы',
-  'SAR': 'Риалы',
+  'SAR': 'Риалы'
+}
+
+const testRates = {
+  'RUBUSDT': 2,
+  'USDTRUB': 3,
+  'RUBTRY': 1.5,
+  'TRYRUB': 10,
+  'USDTAED': 3.55
 }
 
 // HTML's elements
@@ -38,14 +52,24 @@ const f_select = document.querySelector('.from-currency .select');
 const t_select = document.querySelector('.to-currency .select');
 const f_input = document.querySelector('#from-currency-amount');
 const t_input = document.querySelector('#to-currency-amount');
+const fromBtn = document.getElementById("fromBtn");
+const toBtn = document.getElementById("toBtn");
+const fromImg = document.getElementById('fromImg');
+const toImg = document.getElementById('toImg');
+const fromHint = document.getElementById('fromHint-text');
+const toHint = document.getElementById('toHint-text');
+const detailsHint = document.getElementById('detailsHint');
+const cashOrCardEl = document.getElementById("cashOrCard");
+const cashOrCardElInputs = cashOrCardEl.querySelectorAll('input');
+const dropdownEls = document.querySelectorAll(".dropdown-center");
+const userWallet = document.getElementById("userWallet");
 
 // HELPERS : get inputs values
 function fromCurrencyCode() {
-  console.log(f_select.value);
-  return f_select.value;
+  return document.getElementById("fromBtn").textContent;
 }
 function toCurrencyCode() {
-  return t_select.value;
+  return document.getElementById("toBtn").textContent;
 }
 function fromCurrencyAmount() {
   return f_input.value;
@@ -55,44 +79,16 @@ function toCurrencyAmount() {
 }
 
 // VARS AND CONSTS
-const DEFAULT_BASE_CURRENCY_CODE = 'USD';
 const DATA_PRECISION = 2;
 let exchangeRate;
-let currenciesList;
-let ECO_MODE = false;
+let changePair = '';
 
 // get exchange rate
 async function getExchangeRate(fromCurrencyCode, toCurrencyCode) {
-  const amount = 1;
-
-  // const response = await fetch(currencyLayer.convert(fromCurrencyCode, toCurrencyCode, amount));
-  const data = 1;
-  const rate = data.result;
-
+  console.log(fromCurrencyCode + toCurrencyCode)
+  const rate = testRates[fromCurrencyCode + toCurrencyCode];
   return rate;
 }
-
-// render exchange rate
-async function renderExchangeRate(fromCurrencyCode, toCurrencyCode) {
-  exchangeRate = await getExchangeRate(fromCurrencyCode, toCurrencyCode);
-
-
-  plural = exchangeRate === 1 ? 's' : '';
-
-  exchangeRateEl.innerHTML = `<p>1 ${currenciesList[fromCurrencyCode]} equals</p>
-  <h1>${exchangeRate.toFixed(DATA_PRECISION)} ${currenciesList[toCurrencyCode]}${plural}</h1>`;
-}
-
-// render select options
-function renderSelectOptions(list) {
-  t_select.innerHTML = '';
-
-  for (const currencyCode in list) {
-    t_select.innerHTML += `<button class="dropdown-item" href="#">${currencyCode}</button>
-                            <hr class="dropdown-divider">`;
-  }
-}
-
 
 // Convert func
 async function convert(direction) {
@@ -103,42 +99,10 @@ async function convert(direction) {
   }
 }
 
-// Events listeners
-f_select.addEventListener('change', async () => {
-  // renderSelectOptions(currencies)
-  console.log('Hello')
-  await renderExchangeRate(fromCurrencyCode(), toCurrencyCode());
-  convert('from->to');
-});
-t_select.addEventListener('change', async () => {
-  await renderExchangeRate(fromCurrencyCode(), toCurrencyCode());
-  convert('to->from');
-});
-f_input.addEventListener('input', async () => {
-  if (!ECO_MODE) {
-    exchangeRate = 1;
-    console.log(exchangeRate);
-  }
-  convert('from->to');
-});
-t_input.addEventListener('input', async () => {
-  if (!ECO_MODE) {
-    exchangeRate = 1;
-    // exchangeRate = await getExchangeRate(fromCurrencyCode(), toCurrencyCode());
-  }
-  convert('to->from');
-});
-
-
 // Correct selection in dropdowns
-const dropdownEls = document.querySelectorAll(".dropdown-center");
-
 dropdownEls.forEach(element => {
   element.addEventListener("click", function(event) {
     
-    fromBtn = document.getElementById("fromBtn")
-    toBtn = document.getElementById("toBtn")
-
     if(event.target.matches('.dropdown-item')) {
       element.querySelector('.dropdown-toggle').textContent=event.target.textContent
     }
@@ -176,18 +140,85 @@ dropdownEls.forEach(element => {
       }
     }
 
-    if (listEl.id == 'fronList' || listEl.id == 'toList') {
-      document.getElementById('fromImg').src = `assets/${fromBtn.textContent}.png`
-      document.getElementById('toImg').src = `assets/${toBtn.textContent}.png`
+    if (listEl.id == 'fromList' || listEl.id == 'toList') {
+      fromImg.src = `assets/${fromBtn.textContent}.png`
+      toImg.src = `assets/${toBtn.textContent}.png`
   
-      document.getElementById('fromHint-text').textContent = hintText[fromBtn.textContent]
-      document.getElementById('toHint-text').textContent = hintText[toBtn.textContent]
-    }
+      fromHint.textContent = hintText[fromBtn.textContent]
+      toHint.textContent = hintText[toBtn.textContent]
 
-    if (fromBtn.textContent == 'RUB' && toBtn.textContent == 'USDT') {
-      document.getElementById("testDivTwo").focus();
+      if(event.target.matches('.dropdown-item')) {
+        document.querySelectorAll('.form-element').forEach( element => {
+          element.classList.add('visually-hidden');
+        });
+
+        cashOrCardElInputs.forEach( element => {
+          element.checked = false
+        });
+      }
+
+      changePair = fromBtn.textContent + toBtn.textContent;
+      detailsHint.textContent = hintText[changePair]
+
+      showOrHideHtmlEl(['RUBUSDT', 'USDTRUB', 'RUBTRY'].includes(changePair), 'cashOrCard');
+      showOrHideHtmlEl(toBtn.textContent == 'USDT', 'userWallet');
     }
   });
+});
+
+
+// Cash or card element events
+cashOrCardElInputs.forEach( element => {
+  element.addEventListener("click", function(){
+    if (changePair == 'USDTRUB') {
+      const cardChecked = cashOrCardEl.querySelector('input:checked').value == 1
+      showOrHideHtmlEl(cardChecked, 'userBankInput');
+      showOrHideHtmlEl(cardChecked, 'ourWallet');
+    }
+  });
+});
+
+// Element hide helper
+function showOrHideHtmlEl(condition, htmlEl) {
+  if (condition) {
+    document.getElementById(htmlEl).classList.remove('visually-hidden')
+  } else {
+    document.getElementById(htmlEl).classList.add('visually-hidden')
+  }
+}
+
+
+// Convert events
+f_select.addEventListener('click', async (event) => {
+  if (event.target.matches('.dropdown-item')) {
+    console.log(event.target.textContent)
+    exchangeRate = await getExchangeRate(event.target.textContent, currencies[event.target.textContent][0]);
+    console.log(exchangeRate, 'f_select');
+  }
+  convert('from->to');
+});
+
+t_select.addEventListener('click', async (event) => {
+  if (event.target.matches('.dropdown-item')) {
+    exchangeRate = await getExchangeRate(fromCurrencyCode(), event.target.textContent,);
+    console.log(exchangeRate, 't_select')
+  }
+  convert('to->from');
+});
+
+f_input.addEventListener('input', async () => {
+  exchangeRate = await getExchangeRate(fromCurrencyCode(), toCurrencyCode());
+  convert('from->to');
+});
+t_input.addEventListener('input', async () => {
+  exchangeRate = await getExchangeRate(fromCurrencyCode(), toCurrencyCode());
+  convert('to->from');
+});
+
+userWallet.addEventListener('click', async (event) => {
+  if (!!event.target.value) {
+    tg.MainButton.isActive = true
+  }
 });
 
 // // Deviding by comma in inputs
