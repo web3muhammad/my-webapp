@@ -149,7 +149,7 @@
       
     </div>
 
-    <div class='pickup-or-delivery visually-hidden' id="pickupOrDelivery">
+    <div class='form-element pickup-or-delivery visually-hidden' id="pickupOrDelivery">
       <label for="">Выберите способ получения</label>
       <div
         class="btn-group"
@@ -294,7 +294,7 @@
         <label for="" class="form-label">Номер карты</label>
         <input
           type="text"
-          class="form-control form-input"
+          class="form-control form-input copy-input"
           name=""
           id="testDivTwo"
           aria-describedby="helpId"
@@ -309,7 +309,7 @@
         <label for="" class="form-label">Имя Фамилия</label>
         <input
           type="text"
-          class="form-control form-input"
+          class="form-control form-input copy-input"
           name=""
           id=""
           aria-describedby="helpId"
@@ -366,7 +366,19 @@
     </div>
 
     <div class="form-element visually-hidden" id="ourWallet">
-      <p>TExxGf9svXWXX66mH9nsAQh3uvofRFMXms</p>
+      <div class="mb-3">
+        <label for="" class="form-label">Наш адрес кошелька USDT (TRC20)</label>
+        <input
+          type="tel"
+          class="form-control form-input copy-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          value="TExxGf9svXWXX66mH9nsAQh3uvofRFMXms"
+          readonly
+        />
+        <small id="helpId" class="form-text text-muted">Нажмите, чтобы скопировать</small>
+      </div>
     </div>
 
   </div>

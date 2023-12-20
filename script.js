@@ -19,12 +19,13 @@ const currencies = {
   'RUB': ['USDT', 'TRY', 'KZT', 'AED', 'SAR'],
   'USDT': ['RUB', 'TRY', 'KZT', 'AED', 'SAR'],
   'TRY': ['RUB', 'USDT'],
-  'KZT': ['RUB', 'USDT']
+  'KZT': ['RUB', 'USDT'],
+  'AED': ['RUB', 'USDT']
 };
 
 const selectionsContent = {
   'countriesList': ['🇷🇺 Махачкала', '🇹🇷 Стамбул', '🇷🇺 Москва', '🇦🇪 Дубаи'],
-  'fromList': ['USDT', 'RUB', 'TRY', 'KZT'],
+  'fromList': ['USDT', 'RUB', 'TRY', 'KZT', 'AED'],
   'toList': currencies,
 };
 
@@ -77,6 +78,16 @@ const pickupOrDeliveryInputs = pickupOrDelivery.querySelectorAll('input');
 const pickupInput = document.getElementById('cashInput');
 const deliveryInput = document.getElementById('cardInput');
 
+const copyInputs = document.querySelectorAll('.copy-input');
+
+copyInputs.forEach(element => {
+  element.addEventListener("click", function(event) {
+    navigator.clipboard.writeText(event.target.value).then(function() {
+    }, function(err) {
+      console.error('Async: Could not copy text: ', err);
+    });
+  });
+});
 
 // HELPERS : get inputs values
 function fromCurrencyCode() {
@@ -170,6 +181,10 @@ dropdownEls.forEach(element => {
           element.checked = false
           element.disabled = false
         });
+        pickupOrDeliveryInputs.forEach( element => {
+          element.checked = false
+          element.disabled = false
+        });
       }
 
       changePair = fromBtn.textContent + toBtn.textContent;
@@ -179,7 +194,13 @@ dropdownEls.forEach(element => {
       showOrHideHtmlEl(fromBtn.textContent == 'USDT', 'ourWallet');
 
       if (changePair == "RUBAED") {
-        disableCash();
+        disableCard();
+        showOrHideHtmlEl(true, 'pickupOrDelivery');
+      }
+
+      if (changePair == "USDTAED") {
+        disableCard();
+        showOrHideHtmlEl(true, 'pickupOrDelivery');
       }
 
       if (fromBtn.textContent == 'KZT') {
@@ -187,9 +208,16 @@ dropdownEls.forEach(element => {
         showOrHideHtmlEl(true, 'kazakhstanBankInfo');
 
       }
+
       if (toBtn.textContent == 'KZT') {
         disableCash();
         showOrHideHtmlEl(true, 'kazakhstanBankInput');
+        
+      }
+
+      if (toBtn.textContent == 'SAR') {
+        disableCard();
+        showOrHideHtmlEl(true, 'userAddress');
         
       }
     }
@@ -216,17 +244,11 @@ cashOrCardElInputs.forEach( element => {
       showOrHideHtmlEl(cardChecked, 'turkeyBankInput');
       showOrHideHtmlEl(!cardChecked, 'pickupOrDelivery');
 
-    } else if (changePair == 'RUBKZT') {
-
-
     } else if (changePair == 'USDTKZT') {
       showOrHideHtmlEl(cardChecked, 'kazakhstanBankInput');
 
-    } else if (changePair == 'KZTRUB') {
-      
-
-    } else if (changePair == 'KZTUSDT') {
-      
+    } else if (changePair == 'AEDRUB') {
+      showOrHideHtmlEl(!cardChecked, 'pickupOrDelivery');
 
     }
   });
@@ -240,6 +262,8 @@ pickupOrDeliveryInputs.forEach( element => {
       showOrHideHtmlEl(deliveryChecked, 'userAddress');
       showOrHideHtmlEl(deliveryChecked, 'ourWallet');
 
+    } else if (changePair == 'RUBAED') {
+      showOrHideHtmlEl(deliveryChecked, 'userAddress');
     }
   });
 });
