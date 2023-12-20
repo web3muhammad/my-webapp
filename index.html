@@ -111,7 +111,7 @@
       </div>  
     </div>
 
-    <div class="form-element" id="cashOrCard">
+    <div class='cash-or-card' id="cashOrCard">
       <label for="">Выберите способ получения</label>
       <div
         class="btn-group"
@@ -144,6 +144,44 @@
           class="btn btn-outline-primary"
           for="cardInput"
           >💳 Карта</label
+        >
+      </div>
+      
+    </div>
+
+    <div class='pickup-or-delivery visually-hidden' id="pickupOrDelivery">
+      <label for="">Выберите способ получения</label>
+      <div
+        class="btn-group"
+        role="group"
+        aria-label="Basic checkbox toggle button group"
+      >
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio2"
+          id="pickupInput"
+          autocomplete="off"
+          value="0"
+        />
+        <label
+          class="btn btn-outline-primary"
+          for="pickupInput"
+          >🫴 Самовывоз</label
+        >
+      
+        <input
+          type="radio"
+          class="btn-check"
+          name="btnradio2"
+          id="deliveryInput"
+          autocomplete="off"
+          value="1"
+        />
+        <label
+          class="btn btn-outline-primary"
+          for="deliveryInput"
+          >📦 Доставка</label
         >
       </div>
       
@@ -192,7 +230,7 @@
       </div>
     </div>
 
-    <div class="form-element visually-hidden">
+    <div class="form-element visually-hidden" id="turkeyBankInput">
       <h5 class="head-text">Реквизиты вашей турецкой карты</h5>
       <div class="mb-3">
         <label for="" class="form-label">IBAN</label>
@@ -221,7 +259,7 @@
       </div>
     </div>
     
-    <div class="form-element visually-hidden">
+    <div class="form-element visually-hidden" id="kazakhstanBankInput">
       <h5 class="head-text">Реквизиты вашей казахской карты</h5>
       <div class="mb-3">
         <label for="" class="form-label">Номер карты</label>
@@ -250,9 +288,41 @@
       </div>
     </div>
 
-    <div class="form-element visually-hidden">
+    <div class="form-element visually-hidden" id="kazakhstanBankInfo">
+      <h5 class="head-text">Реквизиты нашей казахской карты</h5>
+      <div class="mb-3">
+        <label for="" class="form-label">Номер карты</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id="testDivTwo"
+          aria-describedby="helpId"
+          placeholder=""
+          value="5050 5050 4040 4040"
+          readonly
+        />
+        <small id="helpId" class="form-text text-muted"></small>
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Имя Фамилия</label>
+        <input
+          type="text"
+          class="form-control form-input"
+          name=""
+          id=""
+          aria-describedby="helpId"
+          placeholder=""
+          value="Ivan Ivanov"
+          readonly
+        />
+        <small id="helpId" class="form-text text-muted"></small>
+      </div>
+    </div>
+
+    <div class="form-element visually-hidden" id="userAddress">
       <h5 class="head-text">Доставка</h5>
-      <div class="form-element">
         <div class="mb-3">
           <label for="" class="form-label">Адрес доставки</label>
           <input
@@ -265,9 +335,7 @@
           />
           <small id="helpId" class="form-text text-muted"></small>
         </div>
-      </div>
   
-      <div class="form-element">
         <div class="mb-3">
           <label for="" class="form-label">Фото паспорта получателя</label>
           <input
@@ -280,7 +348,6 @@
           />
           <small id="helpId" class="form-text text-muted"></small>
         </div>
-      </div>
     </div>
 
     <div class="form-element visually-hidden">

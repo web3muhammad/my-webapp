@@ -72,6 +72,12 @@ const userWallet = document.getElementById("userWallet");
 const cashInput = document.getElementById('cashInput');
 const cardInput = document.getElementById('cardInput');
 
+const pickupOrDelivery = document.getElementById("pickupOrDelivery");
+const pickupOrDeliveryInputs = pickupOrDelivery.querySelectorAll('input');
+const pickupInput = document.getElementById('cashInput');
+const deliveryInput = document.getElementById('cardInput');
+
+
 // HELPERS : get inputs values
 function fromCurrencyCode() {
   return document.getElementById("fromBtn").textContent;
@@ -89,7 +95,7 @@ function toCurrencyAmount() {
 // VARS AND CONSTS
 const DATA_PRECISION = 2;
 let exchangeRate;
-let changePair = '';
+let changePair;
 
 // get exchange rate
 async function getExchangeRate(fromCurrencyCode, toCurrencyCode) {
@@ -105,6 +111,7 @@ async function convert(direction) {
     f_input.value = toCurrencyAmount() / exchangeRate;
   }
 }
+
 
 // Correct selection in dropdowns
 dropdownEls.forEach(element => {
@@ -168,17 +175,22 @@ dropdownEls.forEach(element => {
       changePair = fromBtn.textContent + toBtn.textContent;
       detailsHint.textContent = hintText[changePair]
 
-      showOrHideHtmlEl(['RUBUSDT', 'USDTRUB', 'RUBTRY'].includes(changePair), 'cashOrCard');
       showOrHideHtmlEl(toBtn.textContent == 'USDT', 'userWallet');
+      showOrHideHtmlEl(fromBtn.textContent == 'USDT', 'ourWallet');
 
       if (changePair == "RUBAED") {
-        showOrHideHtmlEl(true, "cashOrCard");
         disableCash();
       }
 
-      if (changePair == "RUBKZT") {
-        showOrHideHtmlEl(true, "cashOrCard");
-        disableCard();
+      if (fromBtn.textContent == 'KZT') {
+        disableCash();
+        showOrHideHtmlEl(true, 'kazakhstanBankInfo');
+
+      }
+      if (toBtn.textContent == 'KZT') {
+        disableCash();
+        showOrHideHtmlEl(true, 'kazakhstanBankInput');
+        
       }
     }
   });
@@ -188,10 +200,46 @@ dropdownEls.forEach(element => {
 // Cash or card element events
 cashOrCardElInputs.forEach( element => {
   element.addEventListener("click", function(){
-    if (changePair == 'USDTRUB') {
-      const cardChecked = cashOrCardEl.querySelector('input:checked').value == 1
+    const cardChecked = cashOrCardEl.querySelector('input:checked').value == 1
+
+    if (changePair == 'USDTRUB') {   
       showOrHideHtmlEl(cardChecked, 'userBankInput');
-      showOrHideHtmlEl(cardChecked, 'ourWallet');
+
+    } else if (changePair == 'RUBTRY') {
+      showOrHideHtmlEl(cardChecked, 'turkeyBankInput');
+      showOrHideHtmlEl(!cardChecked, 'userAddress'); 
+
+    } else if (changePair == 'TRYRUB') {
+      showOrHideHtmlEl(cardChecked, 'userBankInput');
+
+    } else if (changePair == 'USDTTRY') {
+      showOrHideHtmlEl(cardChecked, 'turkeyBankInput');
+      showOrHideHtmlEl(!cardChecked, 'pickupOrDelivery');
+
+    } else if (changePair == 'RUBKZT') {
+
+
+    } else if (changePair == 'USDTKZT') {
+      showOrHideHtmlEl(cardChecked, 'kazakhstanBankInput');
+
+    } else if (changePair == 'KZTRUB') {
+      
+
+    } else if (changePair == 'KZTUSDT') {
+      
+
+    }
+  });
+});
+
+pickupOrDeliveryInputs.forEach( element => {
+  element.addEventListener("click", function(){
+    const deliveryChecked = pickupOrDelivery.querySelector('input:checked').value == 1
+
+    if (changePair == 'USDTRUB') {   
+      showOrHideHtmlEl(deliveryChecked, 'userAddress');
+      showOrHideHtmlEl(deliveryChecked, 'ourWallet');
+
     }
   });
 });

@@ -9,6 +9,10 @@ body {
   margin-top: 30px;
 }
 
+label {
+  margin-bottom: 10px;
+}
+
 /* Details */
 :focus {
   outline: none;
@@ -204,6 +208,10 @@ body {
 }
 
 .form-element {
+  margin-top: 20px;
+}
+
+.cash-or-card {
   margin-top: 20px;
 }
 
