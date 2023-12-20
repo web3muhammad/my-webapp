@@ -8,6 +8,8 @@ tg.MainButton.setParams(
   is_active = false,
   is_visible = true);
 
+tg.MainButton.show();
+
 // Dicts
 const currencies = {
   'RUB': ['USDT', 'TRY', 'KZT', 'AED', 'SAR'],
