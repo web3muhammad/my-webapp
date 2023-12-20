@@ -1,18 +1,18 @@
 const tg = window.Telegram.WebApp;
 tg.expand();
 
-tg.MainButton.setParams(
-  text = 'Отправить заявку',
-  color = '#2cab37',
-  text_color = '#FFFFFF',
-  is_active = false,
-  is_visible = true);
+tg.MainButton.setParams({  
+  "text": 'Отправить заявку',
+  "color": '#2cab37',
+  "text_color": '#FFFFFF',
+  "is_active": false,
+  "is_visible": true});
 
-tg.MainButton.text = 'Отправить заявку'; // текст кнопки, по умолчанию: "Continue"
-tg.MainButton.color = '#2cab37';// цвет текста
-tg.MainButton.textColor  = '#FFFFFF';// цвет подложки
-tg.MainButton.isVisible = true; // видна ли кнопка (по умолчанию false) 
-tg.MainButton.isActive = false;
+// tg.MainButton.text = 'Отправить заявку'; // текст кнопки, по умолчанию: "Continue"
+// tg.MainButton.color = '#2cab37';// цвет текста
+// tg.MainButton.textColor  = '#FFFFFF';// цвет подложки
+// tg.MainButton.isVisible = true; // видна ли кнопка (по умолчанию false) 
+// tg.MainButton.isActive = false;
 
 // tg.MainButton.show();
 
@@ -223,11 +223,11 @@ t_input.addEventListener('input', async () => {
   convert('to->from');
 });
 
-userWallet.addEventListener('click', async (event) => {
-  if (!!event.target.value) {
-    tg.MainButton.isActive = true
-  }
-});
+// userWallet.addEventListener('click', async (event) => {
+//   if (!!event.target.value) {
+//     tg.MainButton.isActive = true
+//   }
+// });
 
 // // Deviding by comma in inputs
 // let inputElements = document.querySelectorAll(".comma");
