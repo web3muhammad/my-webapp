@@ -3,8 +3,6 @@ tg.expand();
 
 tg.MainButton.setParams({  
   "text": 'Отправить заявку',
-  "color": '#2cab37',
-  "text_color": '#FFFFFF',
   "is_active": false,
   "is_visible": true});
 
@@ -71,6 +69,8 @@ const cashOrCardEl = document.getElementById("cashOrCard");
 const cashOrCardElInputs = cashOrCardEl.querySelectorAll('input');
 const dropdownEls = document.querySelectorAll(".dropdown-center");
 const userWallet = document.getElementById("userWallet");
+const cashInput = document.getElementById('cashInput');
+const cardInput = document.getElementById('cardInput');
 
 // HELPERS : get inputs values
 function fromCurrencyCode() {
@@ -93,7 +93,6 @@ let changePair = '';
 
 // get exchange rate
 async function getExchangeRate(fromCurrencyCode, toCurrencyCode) {
-  console.log(fromCurrencyCode + toCurrencyCode)
   const rate = testRates[fromCurrencyCode + toCurrencyCode];
   return rate;
 }
@@ -162,6 +161,7 @@ dropdownEls.forEach(element => {
 
         cashOrCardElInputs.forEach( element => {
           element.checked = false
+          element.disabled = false
         });
       }
 
@@ -170,6 +170,16 @@ dropdownEls.forEach(element => {
 
       showOrHideHtmlEl(['RUBUSDT', 'USDTRUB', 'RUBTRY'].includes(changePair), 'cashOrCard');
       showOrHideHtmlEl(toBtn.textContent == 'USDT', 'userWallet');
+
+      if (changePair == "RUBAED") {
+        showOrHideHtmlEl(true, "cashOrCard");
+        disableCash();
+      }
+
+      if (changePair == "RUBKZT") {
+        showOrHideHtmlEl(true, "cashOrCard");
+        disableCard();
+      }
     }
   });
 });
@@ -195,13 +205,21 @@ function showOrHideHtmlEl(condition, htmlEl) {
   }
 }
 
+function disableCash() {
+  cashInput.disabled = true;
+  cardInput.checked = true;
+}
+
+function disableCard() {
+  cardInput.disabled = true;
+  cashInput.checked = true;
+}
+
 
 // Convert events
 f_select.addEventListener('click', async (event) => {
   if (event.target.matches('.dropdown-item')) {
-    console.log(event.target.textContent)
     exchangeRate = await getExchangeRate(event.target.textContent, currencies[event.target.textContent][0]);
-    console.log(exchangeRate, 'f_select');
   }
   convert('from->to');
 });
@@ -209,7 +227,6 @@ f_select.addEventListener('click', async (event) => {
 t_select.addEventListener('click', async (event) => {
   if (event.target.matches('.dropdown-item')) {
     exchangeRate = await getExchangeRate(fromCurrencyCode(), event.target.textContent,);
-    console.log(exchangeRate, 't_select')
   }
   convert('to->from');
 });
