@@ -223,11 +223,11 @@ t_input.addEventListener('input', async () => {
   convert('to->from');
 });
 
-// userWallet.addEventListener('click', async (event) => {
-//   if (!!event.target.value) {
-//     tg.MainButton.isActive = true
-//   }
-// });
+userWallet.addEventListener('click', async (event) => {
+  if (true) {
+    tg.MainButton.isActive = true
+  }
+});
 
 // // Deviding by comma in inputs
 // let inputElements = document.querySelectorAll(".comma");
